@@ -201,7 +201,8 @@ void deepSleep(){ //режим глубокого сна(пока не испо�
 void update(){ //http прошивка микроконтроллера
   
   server.send ( 200, "text/plain", "Ok" );
-  t_httpUpdate_return ret = ESPhttpUpdate.update("https://github.com/hackuniversity/" + server.arg(0) + ".bin");
+  Serial.println("https://github.com/Deltax2016/hack_university/raw/master/" + server.arg(0) + ".bin");
+  t_httpUpdate_return ret = ESPhttpUpdate.update("https://github.com/Deltax2016/hack_university/raw/master/" + server.arg(0) + ".bin");
 
         switch(ret) {
             case HTTP_UPDATE_FAILED:
@@ -274,7 +275,6 @@ void setup() {
       }
       else 
       {
-        Serial.println(ipToString(WiFi.localIP()));
         Serial.println(ipToString(WiFi.localIP()));
         display.setTextSize(1);
         display.setTextColor(WHITE);
@@ -363,7 +363,7 @@ void pogoda(void) {
   display.println(" C");
   display.display();
   display.setFont();
-  delay(3000);
+  delay(2000);
 
   display.clearDisplay();
   display.setTextSize(1);
@@ -383,7 +383,7 @@ void pogoda(void) {
   display.println("%");
   display.display();
   display.setFont();
-  delay(3000);
+  delay(2000);
   
   /*display.clearDisplay();
   display.setCursor(0,0);
